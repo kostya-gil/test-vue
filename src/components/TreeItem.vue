@@ -77,7 +77,7 @@ export default {
 			const treeItem = this.$refs.treeItem;
 			if (input.checked) {
 				this.$store.commit("addId", input.value);
-				[].slice.call(treeItem.querySelectorAll('.tree-item__check')).forEach(function(item, i) {
+				[].slice.call(treeItem.querySelectorAll('.tree-item__check')).forEach((item, i) => {
 					if (i == 0) {
 						return false;
 					} else {
