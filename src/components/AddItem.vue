@@ -52,19 +52,15 @@ export default {
 			this.title = "";
 		},
 		checkForm() {
-			if (this.title) {
+			if (!this.title) {
+				this.errors.push("Требуется ввести название.");
+				return false;
+			} else {
 				this.errors = [];
 				eventBus.$emit("close", {
 					showModal: false
 				});
 				return true;
-			}
-
-			this.errors = [];
-
-			if (!this.title) {
-				this.errors.push("Требуется ввести название.");
-				return false;
 			}
 		}
 	}
