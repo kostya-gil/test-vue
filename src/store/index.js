@@ -61,10 +61,12 @@ export default new Vuex.Store({
 			mass.children.push(payload.item);
 		},
 		addId(state, id) {
-			state.listId.push(id);
+			if (state.listId.indexOf(id) != id) {
+				state.listId.push(id);
+			}
 		},
 		removeId(state, id) {
-			state.listId = state.listId.filter(item => item !== id);
+			state.listId.splice(state.listId.indexOf(id), 1);
 		}
 	}
 });
