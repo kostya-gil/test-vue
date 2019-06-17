@@ -61,12 +61,16 @@ export default new Vuex.Store({
 			mass.children.push(payload.item);
 		},
 		addId(state, id) {
-			if (state.listId.indexOf(id) != id) {
+			const index = state.listId.indexOf(id);
+			if (index === -1) {
 				state.listId.push(id);
 			}
 		},
 		removeId(state, id) {
-			state.listId.splice(state.listId.indexOf(id), 1);
+			const index = state.listId.indexOf(id);
+			if (index !== -1) {
+				state.listId.splice(index, 1);
+			}
 		}
 	}
 });
