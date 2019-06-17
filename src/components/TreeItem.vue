@@ -77,7 +77,7 @@ export default {
 			const treeItem = this.$refs.treeItem;
 			if (input.checked) {
 				this.$store.commit("addId", input.value);
-				[].slice.call(treeItem.querySelectorAll('.tree-item__check')).forEach((item, i) => {
+				Array.prototype.forEach.call(treeItem.querySelectorAll('.tree-item__check'), (item, i) => {
 					if (i == 0) {
 						return false;
 					} else {
@@ -88,7 +88,7 @@ export default {
 				});
 			} else {
 				this.$store.commit("removeId", input.value);
-				[].slice.call(treeItem.querySelectorAll('.tree-item__check')).forEach(function(item, i) {
+				Array.prototype.forEach.call(treeItem.querySelectorAll('.tree-item__check'), (item, i) => {
 					item.disabled = false;
 				});
 			}
